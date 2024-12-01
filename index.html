@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tetris Game</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="game-container">
+  <div id="tetris-container">
+    <h1 class="game-title">Tetris</h1>
+    <div class="game-info">
+      <div id="score">Score: 0</div>
+      <div id="lines-remaining">Lines to Win: 0</div>
+      <button id="sound-toggle" class="control-btn">🔊</button>
+    </div>
+    <canvas id="tetris-canvas"></canvas>
+    <button id="start-game" class="start-btn">Start Game</button>
+    <div class="controls-info">
+      <p>← → : Move</p>
+      <p>↑ : Rotate</p>
+      <p>↓ : Drop</p>
+      <p>Space : Hard Drop</p>
+    </div>
+  </div>
+
+  <!-- Schwierigkeitsauswahl Modal -->
+  <div id="difficulty-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Select Difficulty</h2>
+      <button class="difficulty-btn" data-difficulty="easy">Easy</button>
+      <button class="difficulty-btn" data-difficulty="normal">Normal</button>
+      <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+    </div>
+  </div>
+
+  <!-- Celebration Screen -->
+  <div id="celebration" class="hidden">
+    <h1 class="celebration-text">Happy Birthday! 🎉</h1>
+    <button id="play-again" class="control-btn">Play Again</button>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="game-over" class="hidden">
+    <h1 class="game-over-text">Game Over</h1>
+    <button id="try-again" class="control-btn">Try Again</button>
+  </div>
+</div>
+<script type="module" src="/src/main.js"></script>
+<script>
+  // Verhindert das Scrollen der Seite bei Pfeiltastendrücken
+  window.addEventListener("keydown", function(e) {
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "].includes(e.key)) {
+      e.preventDefault();
+    }
+  }, false);
+</script>
+</body>
+</html>
